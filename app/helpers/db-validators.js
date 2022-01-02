@@ -41,10 +41,19 @@ const isExistingPost = async( id ) => {
     }
 }
 
+const isTechnologyExistingById = async (id) => {
+    const tech = await findTechnologyNameById(id);
+    if (!tech) {
+      throwJsonError(400, `Technology selected does not exist.`);
+    }
+   
+  };
+
 module.exports = {
     isExistingEmail,
     isExistingUserById,
     isUserActive,
     isExistingAnswer,
     isExistingPost,
+    isTechnologyExistingById,
 };
